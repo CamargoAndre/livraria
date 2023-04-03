@@ -19,5 +19,10 @@ public class HandlerException extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ResponseException(e.getMessage()));
     }
 
+    @ExceptionHandler(SecurityException.class)
+    protected ResponseEntity<ResponseException> handleSecurity(SecurityException e){
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ResponseException(e.getMessage()));
+    }
+
 
 }

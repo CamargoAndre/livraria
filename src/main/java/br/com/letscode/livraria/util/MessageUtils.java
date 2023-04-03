@@ -12,4 +12,6 @@ public abstract class MessageUtils {
     public static final String NO_RECORDS_FOUND = "Nenhum registro encontrado";
 
     public static final String NAME_IS_REQUIRED = "O nome é obrigatório";
+
+    public static final String LOGIN_OR_PASSWORD_NOT_FOUND = "Usuário inexistente ou senha invalida";
 }

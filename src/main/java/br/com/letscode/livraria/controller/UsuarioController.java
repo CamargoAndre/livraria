@@ -1,5 +1,4 @@
 package br.com.letscode.livraria.controller;
-
 import br.com.letscode.livraria.model.dto.UsuarioDTO;
 import br.com.letscode.livraria.model.dto.UsuarioLoginDTO;
 import br.com.letscode.livraria.model.dto.UsuarioSenhaDTO;
@@ -8,7 +7,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,8 +20,12 @@ public class UsuarioController {
        return ResponseEntity.ok(service.save(dto));
     }
 
-    public ResponseEntity<UsuarioDTO> logar(@RequestParam UsuarioLoginDTO dto){
-        return ResponseEntity.ok().build();
+    @PostMapping(value = "/auth")
+    public ResponseEntity<Object> logar(@RequestBody UsuarioLoginDTO dto){
+
+        return ResponseEntity.ok(service.login(dto));
+
+
     }
 
 }
